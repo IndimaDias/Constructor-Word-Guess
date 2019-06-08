@@ -23,11 +23,27 @@ function Word(wordArray){
             else{ 
                 strArray.push(checkArray[i].validateLetter());  
             }
-             
-            
+                         
 
         }
         console.log(strArray.join(" "));
+    }
+
+    this.chekLetter = function(letter){
+
+        this.wordArray.forEach(matchLetter);
+            
+            
+        
+        function matchLetter(letterObj){
+            if(letterObj.letter === letter){
+                letterObj.updateGuessed(letter);
+            }   
+        }
+    }
+
+    function matchLetter(letterObj){
+
     }
 }
 
@@ -44,6 +60,14 @@ for(var i =0 ; i<wordRandom.length ; i++){
 }
 
 var wordArr = new Word (newWord);
+wordArr.toString();
+
+var args = process.argv;
+
+var playerChoise = args[2];
+
+wordArr.chekLetter(playerChoise);
+
 wordArr.toString();
 
 // wordArr.wordArray - new Word(newWord);
