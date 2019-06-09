@@ -8,20 +8,28 @@ var Letter = require('./Letter.js');
 
 
 // constructor 
-function Word(wordArray){
+var Word = function(newWord){
     // Array storing the random word
-    this.wordArray = wordArray;
+    this.wordArray = [];
     
+    for(var i=0; i<newWord.length;i++){
+        if(newWord[i] === " "){
+            this.wordArray.push('\xA0');
+        }
+        else {
+            this.wordArray.push(new Letter(newWord[i]));
+        }
+    }
 }
 
 
 // toString function that prints the array 
 Word.prototype.toString = function(){
+    
         var checkArray = this.wordArray;
         var strArray = [];  // new array to store the values to be printed
 
-        for(var i=0; i<checkArray.length; i++){
-
+        for(var i=0; i<checkArray.length; i++){           
             if(checkArray[i] === '\xA0'){
                 // if the word contains a space, add space to the array to be printed 
                 strArray.push(" "); 
@@ -31,8 +39,8 @@ Word.prototype.toString = function(){
                 // validate the letter and print the letter or _
                 strArray.push(checkArray[i].validateLetter());  
             }
-                         
-
+                        
+            
         }
         // print the array as a string
         console.log(strArray.join(" ")+"\n\n");
@@ -56,29 +64,22 @@ Word.prototype.toString = function(){
     // ...................................end of method checkLetter.........................................
 // .............................end of constructor..............................................
 
+module.exports = Word;
 
-var wordRandom = "test test";
-var newWord = [];
-for(var i =0 ; i<wordRandom.length ; i++){
-    if(wordRandom[i] === " "){
-        newWord.push('\xA0');
-    }
-    else {
-        newWord.push(new Letter(wordRandom[i]));
-    }    
-    
-}
+// var wordRandom = "test test";
+// var newWord = [];
 
-var wordArr = new Word (newWord);
-wordArr.toString();
+// var wordArray = [ 'b', 'a', 's', 'k', 'e', 't' ];
+// var wordArr = new Word('testtest');
+// wordArr.toString();
 
-var args = process.argv;
+// var args = process.argv;
 
-var playerChoise = args[2];
+// var playerChoise = args[2];
 
-wordArr.chekLetter(playerChoise);
+// wordArr.chekLetter(playerChoise);
 
-wordArr.toString();
+// wordArr.toString();
 
 // wordArr.wordArray - new Word(newWord);
 
