@@ -1,0 +1,23 @@
+{
+  "name": "constructor-word-guess",
+  "version": "1.0.0",
+  "description": "A command line word guessing game. Player should guess the letters of a randomly generated word to win.\r Guessing should be done within the no of truns allowed",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IndimaDias/Constructor-Word-Guess.git"
+  },
+  "author": "Indima Dias",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IndimaDias/Constructor-Word-Guess/issues"
+  },
+  "homepage": "https://github.com/IndimaDias/Constructor-Word-Guess#readme",
+  "dependencies": {
+    "inquirer": "^6.3.1",
+    "random-words": "^1.1.0"
+  }
+}

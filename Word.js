@@ -7,45 +7,55 @@
 var Letter = require('./Letter.js');
 
 
-
+// constructor 
 function Word(wordArray){
+    // Array storing the random word
     this.wordArray = wordArray;
-    // this.
-    this.toString = function(){
+    
+}
+
+
+// toString function that prints the array 
+Word.prototype.toString = function(){
         var checkArray = this.wordArray;
-        var strArray = [];
+        var strArray = [];  // new array to store the values to be printed
 
         for(var i=0; i<checkArray.length; i++){
+
             if(checkArray[i] === '\xA0'){
+                // if the word contains a space, add space to the array to be printed 
                 strArray.push(" "); 
               
             }
             else{ 
+                // validate the letter and print the letter or _
                 strArray.push(checkArray[i].validateLetter());  
             }
                          
 
         }
-        console.log(strArray.join(" "));
+        // print the array as a string
+        console.log(strArray.join(" ")+"\n\n");
     }
+//   ......................................end of method toSting..............................................................
 
-    this.chekLetter = function(letter){
-
-        this.wordArray.forEach(matchLetter);
-            
-            
+    Word.prototype.chekLetter = function(letter){
+        // this method will comapare the letter enterd by the player with each letter in the array
+        // it calls the helper function matchLetter for each object in the array
+        this.wordArray.forEach(matchLetter);   
+        
         
         function matchLetter(letterObj){
+            // helper function for checkLetter method. This is called in the forEach of the array
             if(letterObj.letter === letter){
+                // update the status of object of player entered letter is matched
                 letterObj.updateGuessed(letter);
             }   
         }
     }
+    // ...................................end of method checkLetter.........................................
+// .............................end of constructor..............................................
 
-    function matchLetter(letterObj){
-
-    }
-}
 
 var wordRandom = "test test";
 var newWord = [];

@@ -8,29 +8,33 @@
 function Letter(letter) {
     this.letter = letter;
     this.letterGuessed = false; //This letter has been guessed by user or not
-    this.validateLetter = function(){
-        var returnChar = "";
- 
-        if(!this.letterGuessed){
-            returnChar = "_";
-        }
-        else{
-            returnChar = this.letter;
-        }
-
-        return returnChar;
-    }
-    this.updateGuessed = function(userChoise){
-        // this method will update the propoerty letterGuessed
-        if(userChoise === this.letter){
-            this.letterGuessed = true;
-        }
         
+}
 
+// constructor method validateLetter
+Letter.prototype.validateLetter = function(){
+    var returnChar = "";
+
+    if(!this.letterGuessed){
+        returnChar = "_";
+    }
+    else{
+        returnChar = this.letter;
+    }
+
+    return returnChar;
+} // end method validateLetter
+
+// contructor method updateGuessed 
+Letter.prototype.updateGuessed = function(userChoise){
+    // this method will update the propoerty letterGuessed
+    if(userChoise === this.letter){
+        this.letterGuessed = true;
     }
     
-    
-}
+
+} //end updateGuessed
+
 
 module.exports = Letter;
 
