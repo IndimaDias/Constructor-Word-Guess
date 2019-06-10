@@ -40,9 +40,17 @@ function promptForLetter(){
     inquire.prompt({
         type : 'input',
         name : 'letterGuessed',
-        message : 'You have ' + totalGuesses + ' remaining. Enter a Letter'
+        message : 'You have ' + totalGuesses + ' remaining. Enter a Letter\n'
     }).then(answers =>{
-       wordObj.chekLetter(answers.letterGuessed);
+       var matchFound = wordObj.chekLetter(answers.letterGuessed);
+       if (matchFound === false ){
+           console.log("Incorrect guess\n");
+           totalGuesses--; 
+           promptForLetter(); 
+       }
+       else {
+           promptForLetter();
+       }
        wordObj.toString();
 });
 }

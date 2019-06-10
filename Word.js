@@ -50,6 +50,8 @@ Word.prototype.toString = function(){
     Word.prototype.chekLetter = function(letter){
         // this method will comapare the letter enterd by the player with each letter in the array
         // it calls the helper function matchLetter for each object in the array
+        var matchFound = false;
+
         this.wordArray.forEach(matchLetter);   
         
         
@@ -58,8 +60,11 @@ Word.prototype.toString = function(){
             if(letterObj.letter === letter){
                 // update the status of object of player entered letter is matched
                 letterObj.updateGuessed(letter);
+                matchFound = true;
+
             }   
         }
+        return matchFound;
     }
     // ...................................end of method checkLetter.........................................
 // .............................end of constructor..............................................
