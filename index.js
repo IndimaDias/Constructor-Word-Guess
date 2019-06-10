@@ -1,4 +1,4 @@
-
+ 
 
 
 var randomWord = require('random-words');
@@ -20,6 +20,7 @@ var wordLength = 0;
 // ***********************************function to start the game***************************************
 function start(){
 //   function that starts the game
+    totalGuesses = 10;
     inquire.prompt({
         type : 'list',
         name : 'Choose',
@@ -80,7 +81,9 @@ function promptForLetter(){
             wordObj.toString();
            }
            else{
-               changeToChalk("Game end",'W');
+               toFiglet(newWord);
+               changeToChalk("Game end. You Loose ....\n\n",'W');
+               
                start();
            }
            
@@ -92,7 +95,9 @@ function promptForLetter(){
             //   change the word to Figlet style
               toFiglet(newWord);
             //   display message in different color
-              changeToChalk("You win!!!!!!!!!!!!!!!!",'W');
+              
+              changeToChalk("\nYou win!!!!!!!!!!!!!!!!\n\n",'W');
+              console.log("   ");
 
               start();
             }
