@@ -67,6 +67,20 @@ Word.prototype.toString = function(){
         return matchFound;
     }
     // ...................................end of method checkLetter.........................................
+
+    Word.prototype.allLettersGuessed = function(){
+        var wordArray = this.wordArray;
+        var allGussed = true;
+
+        for (var i=0; i<wordArray.length; i++){
+            if(wordArray[i].letterGuessed === false){
+                allGussed = false;
+
+            }
+        }
+
+        return allGussed;
+    }
 // .............................end of constructor..............................................
 
 module.exports = Word;
